@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>المتجر الإلكتروني - الرئيسية</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>📱 متجر أحمد حسين</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="product.html">المنتجات</a>
+      <a href="cart.html">🛒 السلة</a>
+      <a href="auth.html">تسجيلالدخول</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome-section">
+      <h2>مرحبًا بك في متجرنا الإلكتروني!</h2>
+      <p>استمتع بأفضل العروض والتخفيضات على الإلكترونيات الحديثة.</p>
+    </section>
+
+    <section class="promo-banner">
+      <img src="https://media.istockphoto.com/id/171276224/photo/electronics-shopping.jpg?s=612x612&w=0&k=20&c=mcOOmz2ZaakBmL1XHUNG-ymiNCgjGlODAp5jB6HFoj0=" alt="تخفيضات الصيف :" />
+      <div class="promo-text">
+        <h3>🔥 تخفيضات الصيف حتى 50% 🔥</h3>
+        <p>استغل الفرصة واحصل على منتجاتك المفضلة بأسعار لا تُقاوم!</p>
+      </div>
+    </section>
+    <section class="promo-admin">
+        <img src="images/IMG_20230911_175900~3.jpg" alt="تخفيضات الصيف :" />
+        <div class="promo-textt">
+          <h2>تواصل مع مصمم الموقع </h2>
+          <p>استغل الفرصة واحصل على موقعك المفضل !</p>
+          <label for="admin"><h1>773838932</h1></label>
+          <input type="button"  id="admin" value="تواصل">
+        </div>
+      </section>
+
+    <section class="featured-products">
+      <h2>أحدث المنتجات</h2>
+      <div id="featured-list" class="product-grid"></div>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script>
+    // عرض أحدث 3 منتجات في الصفحة الرئيسية
+    document.addEventListener("DOMContentLoaded", () => {
+      const featuredContainer = document.getElementById("featured-list");
+      const latestProducts = products.slice(-3); // آخر 3 منتجات
+
+      latestProducts.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <p><strong>${product.price} ريال</strong></p>
+          <button onclick="window.location.href='product.html?category=all'">شاهد المزيد</button>
+        `;
+
+        featuredContainer.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

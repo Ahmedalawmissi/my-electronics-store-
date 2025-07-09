@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الدفع</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>💳 الدفع</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="cart.html">🛒 السلة</a>
+    </nav>
+  </header>
+
+  <main class="checkout-container">
+    <section id="order-summary"></section>
+
+    <form id="checkout-form">
+      <h2>معلومات الزبون</h2>
+
+      <label for="name">الاسم الكامل:</label>
+      <input type="text" id="name" required>
+
+      <label for="address">العنوان:</label>
+      <input type="text" id="address" required>
+
+      <label for="payment">طريقة الدفع:</label>
+      <select id="payment" required>
+        <option value="">اختر</option>
+        <option value="cash">عند الاستلام</option>
+        <option value="card">بطاقة بنكية</option>
+      </select>
+
+      <button type="submit">تأكيد الطلب ✅</button>
+    </form>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

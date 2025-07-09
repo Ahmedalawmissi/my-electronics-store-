@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>منتجاتنا</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛍️ منتجاتنا</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="product.html">المنتجات</a>
+      <a href="cart.html">🛒 السلة</a>
+      <a href="auth.html">تسجيل الدخول</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="categories">
+      <button onclick="filterProducts('all')" class="active">عرض الكل</button>
+      <button onclick="filterProducts('سماعات')">سماعات</button>
+      <button onclick="filterProducts('هواتف')">هواتف</button>
+      <button onclick="filterProducts('حاسوب محمول')">حاسوب محمول</button>
+      <button onclick="filterProducts('ساعات')">ساعات</button>
+      <button onclick="filterProducts('ملحقات')">ملحقات</button>
+    </section>
+
+    <section id="product-list" class="product-grid"></section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script>
+    const container = document.getElementById("product-list");
+
+    function displayProducts(filteredProducts) {
+      container.innerHTML = "";
+      filteredProducts.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <p><strong>${product.price} ريال</strong></p>
+          <button onclick="viewDetails(${product.id})">تفاصيل</button>
+          <button onclick="addToCart(${product.id})">🛒 أضف للسلة</button>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function filterProducts(category) {
+      document.querySelectorAll('.categories button').forEach(btn => btn.classList.remove('active'));
+      if (category === 'all') {
+        displayProducts(products);
+        document.querySelector('.categories button:first-child').classList.add('active');
+      } else {
+        const filtered = products.filter(p => p.category === category);
+        displayProducts(filtered);
+        event.target.classList.add('active');
+      }
+    }
+
+    function viewDetails(id) {
+      localStorage.setItem("selectedProduct", id);
+      window.location.href = "product.html?view=detail";
+    }
+
+    function addToCart(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(p => p.id === id);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ id, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("تمت الإضافة إلى السلة!");
+    }
+
+    // عند التحميل، عرض كل المنتجات
+    window.onload = () => {
+      displayProducts(products);
+    };
+  </script>
+</body>
+</html>

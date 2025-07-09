@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>سلة التسوق</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>🛒 سلة التسوق</h1>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="auth.html">تسجيل الدخول</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cart-items" class="cart-container"></section>
+        <div id="total-price" class="total-price"></div>
+        <div class="cart-actions">
+            <a href="checkout.html"><button>الدفع</button></a>
+            <button onclick="clearCart()">🗑️ تفريغ السلة</button>
+        </div>
+    </main>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
