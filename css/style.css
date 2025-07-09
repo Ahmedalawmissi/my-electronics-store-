@@ -17,18 +17,22 @@ body {
     justify-content: space-between;
     align-items: center;
   }
-  
+  nav {
+    height: 90px;
+    margin:  auto;
+  }
   header h1 {
-    font-size: 22px;
+    font-size: 30px;
     color: #ff0000;
   }
   
   nav a {
     color: white;
-    margin-right: 15px;
-    padding: 3px;
+    
+    padding: 20px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 40px;
+    
   }
   
   nav a:hover {
@@ -210,9 +214,18 @@ body {
     color: #fff;
     text-align:center;
   }
+  .promo-admin{
+    background-color: #c2c1c1;
+    width: 100%;
+    height: 400px;
+
+  }
+  .promo-admin input{
+ font-size: larger;
+  }
   .promo-admin img {
-    width: 40%;
-    max-height: 300px;
+    width: 30%;
+    max-height:100%;
     object-fit: cover;
     filter: brightness(0.7);
   }
@@ -222,9 +235,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff0202;
+    color: #000dff;
     text-align: center;
     padding-right: 20%;
+    font-size: 25px;
   }
   
   .featured-products h2 {
