@@ -1,11 +1,6 @@
 /* style.css */
 
-/* الخط الأساسي يكون نسبي ليتناسب مع حجم الشاشة */
-html {
-  font-size: 16px; /* الأساس: 16px */
-  /* يمكن نعدل هذا في الميديا كويري حسب حجم الشاشة */
-}
-
+/* حجم الخط الأساسي للجسم مع clamp لتناسب جميع الشاشات */
 body {
   font-family: "Segoe UI", sans-serif;
   direction: rtl;
@@ -13,31 +8,32 @@ body {
   padding: 0;
   background: #f4f4f4;
   color: #333;
-  font-size: 1rem; /* نسبي لـ html font-size */
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.5;
 }
 
 /* الهيدر */
 header {
   background: #222;
   color: white;
-  padding: 1rem 2rem; /* بدل 15px 30px */
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* عشان يتناسب في الشاشات الصغيرة */
+  flex-wrap: wrap;
 }
 
 header h1 {
-  font-size: 1.375rem; /* 22px تقريبا */
+  font-size: clamp(1.25rem, 2vw, 1.5rem); /* 20px-24px تقريبا */
   margin: 0;
 }
 
 /* روابط الناف */
 nav a {
   color: white;
-  margin-right: 1rem; /* 15px */
+  margin-right: 1rem;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
 }
 
 nav a:hover {
@@ -46,23 +42,23 @@ nav a:hover {
 
 /* محتوى الصفحة */
 main {
-  padding: 2rem; /* 30px */
+  padding: 2rem;
 }
 
 /* شبكة المنتجات */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* بدل 260px استخدم 15rem */
-  gap: 1.5rem; /* 25px */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
 }
 
 /* كارت المنتج */
 .product-card {
   background: white;
-  border-radius: 0.75rem; /* 12px */
+  border-radius: 0.75rem;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1); /* 2px 5px */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
   transition: transform 0.2s;
 }
 
@@ -73,9 +69,9 @@ main {
 /* صور المنتجات */
 .product-card img {
   width: 100%;
-  height: 12.5rem; /* 200px */
+  height: 12.5rem;
   object-fit: cover;
-  border-radius: 0.5rem; /* 8px */
+  border-radius: 0.5rem;
 }
 
 /* الأزرار */
@@ -83,12 +79,12 @@ button {
   background-color: #2e8b57;
   color: white;
   border: none;
-  padding: 0.625rem 0.9375rem; /* 10px 15px */
-  margin: 0.3125rem; /* 5px */
-  border-radius: 0.375rem; /* 6px */
+  padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.8rem, 2vw, 1.2rem);
+  margin: 0.3125rem;
+  border-radius: 0.375rem;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   transition: background-color 0.3s;
 }
 
@@ -98,7 +94,7 @@ button:hover {
 
 /* تفاصيل المنتج */
 .product-details {
-  max-width: 43.75rem; /* 700px */
+  max-width: 43.75rem;
   margin: auto;
   padding: 2rem;
   background: white;
@@ -111,7 +107,7 @@ button:hover {
 .cart-container {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* 20px */
+  gap: 1.25rem;
   padding: 2rem;
 }
 
@@ -123,11 +119,11 @@ button:hover {
   border-radius: 0.75rem;
   box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
   align-items: center;
-  flex-wrap: wrap; /* للسماح بالالتفاف في الشاشات الصغيرة */
+  flex-wrap: wrap;
 }
 
 .cart-item img {
-  width: 7.5rem; /* 120px */
+  width: 7.5rem;
   height: 7.5rem;
   object-fit: cover;
   border-radius: 0.5rem;
@@ -135,11 +131,11 @@ button:hover {
 
 .cart-details {
   flex: 1;
-  min-width: 10rem; /* لا يقل العرض عن هذا */
+  min-width: 10rem;
 }
 
 .cart-details input {
-  width: 3.75rem; /* 60px */
+  width: 3.75rem;
   padding: 0.3125rem;
   text-align: center;
   font-size: 1rem;
@@ -152,7 +148,7 @@ button:hover {
 
 .total-price {
   text-align: center;
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
   margin-top: 0.625rem;
 }
 
@@ -183,7 +179,7 @@ form input, form select {
 
 /* صندوق التوثيق */
 .auth-container {
-  max-width: 25rem; /* 400px */
+  max-width: 25rem;
   margin: 3rem auto;
   background: white;
   padding: 2rem;
@@ -226,7 +222,7 @@ form input, form select {
 
 .promo-banner img {
   width: 100%;
-  max-height: 18.75rem; /* 300px */
+  max-height: 18.75rem;
   object-fit: cover;
   filter: brightness(0.7);
 }
@@ -262,7 +258,7 @@ form input, form select {
   margin-bottom: 1.25rem;
 }
 
-/* تصنيفات */
+/* التصنيفات */
 .categories {
   margin: 1.25rem 0;
   text-align: center;
@@ -277,7 +273,7 @@ form input, form select {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
 }
 
 .categories button.active,
@@ -286,41 +282,16 @@ form input, form select {
   color: white;
 }
 
-
 /* ======================== */
-/* MEDIA QUERIES للتجاوب مع الشاشات الصغيرة */
+/* MEDIA QUERIES */
 /* ======================== */
 
-/* شاشات أقل من 1024px (تابلت وأجهزة صغيرة) */
-@media (max-width: 1024px) {
-  html {
-    font-size: 15px; /* تصغير خط عام */
-  }
-  header h1 {
-    font-size: 1.25rem;
-  }
-  .product-card img {
-    height: 10rem; /* 160px */
-  }
-  .cart-item img {
-    width: 6.25rem; /* 100px */
-    height: 6.25rem;
-  }
-}
-
-/* شاشات أقل من 768px (هواتف كبيرة وصغيرة) */
 @media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-  header {
-    padding: 1rem;
-  }
   header h1 {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
     width: 100%;
     text-align: center;
+    margin-bottom: 0.5rem;
   }
   nav {
     width: 100%;
@@ -328,13 +299,13 @@ form input, form select {
   }
   nav a {
     margin: 0 0.5rem;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 1rem);
   }
   main {
     padding: 1rem;
   }
   .product-card img {
-    height: 9rem; /* 144px */
+    height: 9rem;
   }
   .cart-item {
     flex-direction: column;
@@ -352,39 +323,31 @@ form input, form select {
     width: 100%;
   }
   button {
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     padding: 0.5rem 0.75rem;
   }
   .categories button {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
     padding: 0.5rem 0.75rem;
   }
 }
 
-/* شاشات صغيرة جدا أقل من 480px (هواتف صغيرة جدا) */
 @media (max-width: 480px) {
-  html {
-    font-size: 13px;
-  }
   header h1 {
-    font-size: 1rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
   }
   nav a {
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 3vw, 0.95rem);
   }
   .product-card img {
-    height: 7.5rem; /* 120px */
-  }
-  .cart-item img {
-    max-width: 100%;
-    height: auto;
+    height: 7.5rem;
   }
   button {
-    font-size: 0.85rem;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
     padding: 0.4rem 0.6rem;
   }
   .categories button {
-    font-size: 0.85rem;
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
     padding: 0.4rem 0.6rem;
   }
 }
