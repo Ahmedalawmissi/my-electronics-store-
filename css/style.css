@@ -18,7 +18,7 @@ body {
     align-items: center;
   }
   nav {
-    height: 90px;
+    height: 100px;
     margin:  auto;
   }
   header h1 {
@@ -28,8 +28,7 @@ body {
   
   nav a {
     color: white;
-    
-    padding: 20px;
+    padding: 10px;
     text-decoration: none;
     font-size: 40px;
     
@@ -38,7 +37,14 @@ body {
   nav a:hover {
     text-decoration: underline;
   }
-  
+  .ahmed{
+    width: 30%;
+    height: 50px;
+    background-color: #ef06e3;
+    border-radius: 10%;
+    color: #0c0619;
+
+  }
   main {
     padding: 30px;
   }
